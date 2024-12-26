@@ -9,7 +9,56 @@
       Title="OrganizatorMenu">
 
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical"></StackPanel>
-        <Button Name="CreateBtn" Width="100" Height="30" Click="CreateBtn_Click">Создать турнир</Button>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+            <ListView x:Name="UsersLv"
+                      Width="500"
+          Height="300"
+                      d:ItemsSource="{d:SampleData ItemCount=7}"
+                      Grid.Column="1"
+                      Grid.ColumnSpan="28"
+                      Grid.Row="6"
+                      Grid.RowSpan="4" >
+                <ListView.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding NotVisible}" Value="False">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.Resources>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Background="LightCoral">
+                            <TextBlock Margin="0 10 0 0"
+                    FontSize="25"
+                    Text="Логин пользователя:"
+                    />
+                            <TextBlock Margin="0 10 0 0"
+                        FontSize="25"
+                        Text="{Binding Login}"
+                        />
+                            <TextBlock Margin="0 10 0 0"
+                FontSize="25"
+                Text="Роль пользователя:"
+                />
+                            <TextBlock Margin="0 10 0 0"
+                FontSize="25"
+                Text="{Binding IDUserRole}"
+                />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+            <Button Margin="0 10 0 0" Name="CreateBtn" Width="100" Height="30" Click="CreateBtn_Click">Создать турнир</Button>
+            <Button Margin="0 10 0 0" Name="SeeAppsBtn" Width="150" Height="30">Посмотреть заявки</Button>
+        </StackPanel>
+        
+        
     </Grid>
 </Page>

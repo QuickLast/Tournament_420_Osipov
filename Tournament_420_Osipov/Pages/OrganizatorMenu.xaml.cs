@@ -21,14 +21,20 @@ namespace Tournament_420_Osipov.Pages
     /// </summary>
     public partial class OrganizatorMenu : Page
     {
+        User userToSend;
+        public List<User> users = DBConnection.db.User.ToList();
         public OrganizatorMenu(User user)
         {
             InitializeComponent();
+            
+            userToSend = user;
+            UsersLv.ItemsSource = users;
+            this.DataContext = this;
         }
 
         private void CreateBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddTournamentPage());
+            NavigationService.Navigate(new AddTournamentPage(userToSend));
 
         }
     }

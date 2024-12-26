@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,20 @@ namespace Tournament_420_Osipov.Pages
                 if (RePasswordTBx.Password == PasswordTBx.Password)
                 {
                     DBConnection.db.User.Add(new User());
+
+                    User newUser = new User()
+                    {
+                        IDUserRole = 3,
+                        Login = LoginTBx.Text.Trim(),
+                        Password = PasswordTBx.Password,
+                    };
+
+                    DBConnection.db.User.Add(newUser);
+                    DBConnection.db.SaveChanges();
+
+                    MessageBox.Show("Регистрация прошла успешно!");
+
+                    NavigationService.Navigate(new MainPage(newUser));
                 }
                 else
                 {
@@ -46,6 +61,11 @@ namespace Tournament_420_Osipov.Pages
             {
                 ErrorTBk.Text = "Пользователь уже существует!";
             }
+        }
+
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new LoginPage());
         }
     }
 }

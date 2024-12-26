@@ -28,6 +28,7 @@
         <AssociationConnector Association="TournamentDB_420_OsipovModel.FK_Tournament_Stage" ManuallyRouted="false" />
         <AssociationConnector Association="TournamentDB_420_OsipovModel.FK_TeamsHistory_Team" ManuallyRouted="false" />
         <AssociationConnector Association="TournamentDB_420_OsipovModel.FK_User_UserRole" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_420_OsipovModel.FK_Player_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -35,7 +35,12 @@ namespace Tournament_420_Osipov.Pages
             {
                 if (user.Password == PasswordTBx.Password.ToString())
                 {
-                    NavigationService.Navigate(new MainPage());
+                    if (user.IDUserRole == 3)
+                        NavigationService.Navigate(new MainPage(user));
+                    else if (user.IDUserRole == 2)
+                        NavigationService.Navigate(new OrganizatorMenu(user));
+                    else
+                        NavigationService.Navigate(new PlayerPage(user));
                 }
                 else
                 {

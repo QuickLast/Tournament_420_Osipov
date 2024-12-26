@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tournament_420_Osipov.DB;
 
 namespace Tournament_420_Osipov.Pages
 {
@@ -20,9 +21,12 @@ namespace Tournament_420_Osipov.Pages
     /// </summary>
     public partial class PlayerPage : Page
     {
-        public PlayerPage()
+        public PlayerPage(User user)
         {
             InitializeComponent();
+            Player player = DBConnection.db.Player.ToList().Find(x => x.IDUser == user.IDUser);
+            PlayerInfoTBk.Text = $"Ваш ID: {user.IDUser}. Ваш никнейм: {player.Nickname}. Номер команды: {player.IDTeam}. Ваша роль: {player.Role.Name}";
+            PlayerStatsTBk.Text = $"Статистика: Кол-во матчей - {player.PlayerStats.NumOfMatches}; Побед - {player.PlayerStats.Wins}; Поражений - {player.PlayerStats.Loses}; Ничейных ситуаций - {player.PlayerStats.NumOfMatches - player.PlayerStats.Wins - player.PlayerStats.Loses}";
         }
     }
 }

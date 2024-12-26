@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище TournamentDB_420_OsipovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище TournamentDB_420_OsipovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="IDCategory" />
@@ -37,6 +37,7 @@
           <Property Name="Phone" Type="nvarchar" MaxLength="12" />
           <Property Name="IDRole" Type="int" />
           <Property Name="IDTeam" Type="int" />
+          <Property Name="IDUser" Type="int" />
         </EntityType>
         <EntityType Name="PlayerStats">
           <Key>
@@ -162,6 +163,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Player_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PlayerStats_Player">
           <End Role="Player" Type="Self.Player" Multiplicity="1" />
           <End Role="PlayerStats" Type="Self.PlayerStats" Multiplicity="0..1" />
@@ -264,6 +277,10 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="Player" EntitySet="Player" />
           </AssociationSet>
+          <AssociationSet Name="FK_Player_User" Association="Self.FK_Player_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
           <AssociationSet Name="FK_PlayerStats_Player" Association="Self.FK_PlayerStats_Player">
             <End Role="Player" EntitySet="Player" />
             <End Role="PlayerStats" EntitySet="PlayerStats" />
@@ -289,8 +306,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TournamentDB_420_OsipovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -335,6 +351,8 @@
           <NavigationProperty Name="Role" Relationship="Self.FK_Player_Role" FromRole="Player" ToRole="Role" />
           <NavigationProperty Name="PlayerStats" Relationship="Self.FK_PlayerStats_Player" FromRole="Player" ToRole="PlayerStats" />
           <NavigationProperty Name="TeamsHistory" Relationship="Self.FK_TeamsHistory_Player" FromRole="Player" ToRole="TeamsHistory" />
+          <Property Name="IDUser" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="TournamentDB_420_OsipovModel.FK_Player_User" FromRole="Player" ToRole="User" />
         </EntityType>
         <EntityType Name="PlayerStats">
           <Key>
@@ -414,6 +432,7 @@
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="UserRole" Relationship="Self.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
+          <NavigationProperty Name="Player" Relationship="TournamentDB_420_OsipovModel.FK_Player_User" FromRole="User" ToRole="Player" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -597,7 +616,23 @@
             <End Role="UserRole" EntitySet="UserRole" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <AssociationSet Name="FK_Player_User" Association="TournamentDB_420_OsipovModel.FK_Player_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Player_User">
+          <End Type="TournamentDB_420_OsipovModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="TournamentDB_420_OsipovModel.Player" Role="Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -633,6 +668,7 @@
           <EntitySetMapping Name="Player">
             <EntityTypeMapping TypeName="TournamentDB_420_OsipovModel.Player">
               <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
                 <ScalarProperty Name="IDPlayer" ColumnName="IDPlayer" />
                 <ScalarProperty Name="Nickname" ColumnName="Nickname" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />

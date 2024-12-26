@@ -26,6 +26,7 @@ namespace Tournament_420_Osipov.DB
         public string Phone { get; set; }
         public Nullable<int> IDRole { get; set; }
         public Nullable<int> IDTeam { get; set; }
+        public Nullable<int> IDUser { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MatchPlayers> MatchPlayers { get; set; }
@@ -33,5 +34,6 @@ namespace Tournament_420_Osipov.DB
         public virtual PlayerStats PlayerStats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TeamsHistory> TeamsHistory { get; set; }
+        public virtual User User { get; set; }
     }
 }

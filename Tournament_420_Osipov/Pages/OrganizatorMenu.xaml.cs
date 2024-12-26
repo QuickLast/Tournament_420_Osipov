@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tournament_420_Osipov.DB;
 
 namespace Tournament_420_Osipov.Pages
 {
@@ -20,7 +21,7 @@ namespace Tournament_420_Osipov.Pages
     /// </summary>
     public partial class OrganizatorMenu : Page
     {
-        public OrganizatorMenu()
+        public OrganizatorMenu(User user)
         {
             InitializeComponent();
         }

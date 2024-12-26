@@ -17,16 +17,16 @@ using Tournament_420_Osipov.DB;
 namespace Tournament_420_Osipov.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для ApplicationsPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class ApplicationsPage : Page
     {
         User userToSend;
-        public List<Tournament> tours = DBConnection.db.Tournament.ToList();
-        public MainPage(User user)
+        public List<TournamentApplication> apps = DBConnection.db.TournamentApplication.ToList();
+        public ApplicationsPage(User user)
         {
             InitializeComponent();
-            UsersLv.ItemsSource = tours;
+            UsersLv.ItemsSource = apps;
             this.DataContext = this;
         }
 

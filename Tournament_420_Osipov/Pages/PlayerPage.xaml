@@ -14,7 +14,8 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Margin="0 10 0 0" Name="PlayerInfoTBk"></TextBlock>
             <TextBlock Name="PlayerStatsTBk" Grid.Row="1"></TextBlock>
-            <Button Name="TournamentRegistrationBtn" Click="TournamentRegistrationBtn_Click">Зарегистрироваться на турнир</Button>
+            <Button Width="250" Height="30" Name="TournamentRegistrationBtn" Click="TournamentRegistrationBtn_Click">Зарегистрироваться на турнир</Button>
+            <Button Margin="0 10 0 0" Name="BackBtn" Width="100" Height="30" Click="BackBtn_Click">Назад</Button>
         </StackPanel>
         
     </Grid>

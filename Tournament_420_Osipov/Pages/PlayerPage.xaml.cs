@@ -35,5 +35,10 @@ namespace Tournament_420_Osipov.Pages
         {
             NavigationService.Navigate(new TournamentRegistrationPage(userToSend));
         }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,12 +72,151 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DB\Category.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\DBConnection.cs" />
+    <Compile Include="DB\Match.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\MatchPlayers.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Player.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\PlayerStats.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Role.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Stage.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\sysdiagrams.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Team.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\TeamsHistory.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Tournament.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\TournamentModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TournamentModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\TournamentModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\TournamentModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TournamentModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DB\User.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\UserRole.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddMatchResultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddTournament.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminPanelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MatchSchedulePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OrganizatorMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OverallRatingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PlayerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TournamentLeaderboardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TournamentRegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddMatchResultPage.xaml.cs">
+      <DependentUpon>AddMatchResultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddTournament.xaml.cs">
+      <DependentUpon>AddTournament.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPanelPage.xaml.cs">
+      <DependentUpon>AdminPanelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MatchSchedulePage.xaml.cs">
+      <DependentUpon>MatchSchedulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrganizatorMenu.xaml.cs">
+      <DependentUpon>OrganizatorMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OverallRatingPage.xaml.cs">
+      <DependentUpon>OverallRatingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PlayerPage.xaml.cs">
+      <DependentUpon>PlayerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TournamentLeaderboardPage.xaml.cs">
+      <DependentUpon>TournamentLeaderboardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TournamentRegistrationPage.xaml.cs">
+      <DependentUpon>TournamentRegistrationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,6 +234,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="DB\TournamentModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TournamentModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DB\TournamentModel.edmx.diagram">
+      <DependentUpon>TournamentModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +249,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB\TournamentModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TournamentModel.Context.cs</LastGenOutput>
+      <DependentUpon>TournamentModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="DB\TournamentModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TournamentModel.edmx</DependentUpon>
+      <LastGenOutput>TournamentModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Tournament_420_Osipov
+namespace Tournament_420_Osipov.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для OrganizatorMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OrganizatorMenu : Page
     {
-        public MainWindow()
+        public OrganizatorMenu()
         {
             InitializeComponent();
-            NaFr.Navigate(new Uri("Pages/LoginPage.xaml", UriKind.Relative));
         }
     }
 }

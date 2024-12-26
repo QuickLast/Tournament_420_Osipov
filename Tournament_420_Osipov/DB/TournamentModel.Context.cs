@@ -38,5 +38,6 @@ namespace Tournament_420_Osipov.DB
         public virtual DbSet<Tournament> Tournament { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
+        public virtual DbSet<TournamentApplication> TournamentApplication { get; set; }
     }
 }

@@ -9,6 +9,7 @@
       Title="OrganizatorMenu">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical"></StackPanel>
+        <Button Name="CreateBtn" Width="100" Height="30" Click="CreateBtn_Click">Создать турнир</Button>
     </Grid>
 </Page>

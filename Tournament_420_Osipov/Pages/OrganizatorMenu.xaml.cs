@@ -25,5 +25,11 @@ namespace Tournament_420_Osipov.Pages
         {
             InitializeComponent();
         }
+
+        private void CreateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddTournamentPage());
+
+        }
     }
 }

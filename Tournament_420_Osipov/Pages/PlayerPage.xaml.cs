@@ -21,12 +21,19 @@ namespace Tournament_420_Osipov.Pages
     /// </summary>
     public partial class PlayerPage : Page
     {
+        User userToSend;
         public PlayerPage(User user)
         {
             InitializeComponent();
+            userToSend = user;
             Player player = DBConnection.db.Player.ToList().Find(x => x.IDUser == user.IDUser);
             PlayerInfoTBk.Text = $"Ваш ID: {user.IDUser}. Ваш никнейм: {player.Nickname}. Номер команды: {player.IDTeam}. Ваша роль: {player.Role.Name}";
             PlayerStatsTBk.Text = $"Статистика: Кол-во матчей - {player.PlayerStats.NumOfMatches}; Побед - {player.PlayerStats.Wins}; Поражений - {player.PlayerStats.Loses}; Ничейных ситуаций - {player.PlayerStats.NumOfMatches - player.PlayerStats.Wins - player.PlayerStats.Loses}";
+        }
+
+        private void TournamentRegistrationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TournamentRegistrationPage(userToSend));
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Tournament_420_Osipov.DB
         public User()
         {
             this.Player = new HashSet<Player>();
+            this.TournamentApplication = new HashSet<TournamentApplication>();
         }
     
         public int IDUser { get; set; }
@@ -28,5 +29,7 @@ namespace Tournament_420_Osipov.DB
         public virtual UserRole UserRole { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Player> Player { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TournamentApplication> TournamentApplication { get; set; }
     }
 }

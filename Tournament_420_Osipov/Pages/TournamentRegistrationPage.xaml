@@ -9,6 +9,14 @@
       Title="TournamentRegistrationPage">
 
     <Grid>
-        
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock>Выберите турнир</TextBlock>
+            <ComboBox Name="TournamentCBx" Height="30" ItemsSource="{Binding Tournament}"/>
+            <TextBlock>Состав команды (через запятую)</TextBlock>
+            <TextBox Name="TeamTBx" Height="30"></TextBox>
+            <TextBlock>Предпочитаемая роль</TextBlock>
+            <ComboBox Name="RoleCBx" Height="30" ItemsSource="{Binding Role}"/>
+            <Button Margin="0 10 0 0" Name="RegisterBtn" Height="30" Click="RegisterBtn_Click" >Зарегистрироваться на турнир</Button>
+        </StackPanel>
     </Grid>
 </Page>

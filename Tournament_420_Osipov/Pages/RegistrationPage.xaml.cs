@@ -36,7 +36,6 @@ namespace Tournament_420_Osipov.Pages
             {
                 if (RePasswordTBx.Password == PasswordTBx.Password)
                 {
-                    DBConnection.db.User.Add(new User());
 
                     User newUser = new User()
                     {

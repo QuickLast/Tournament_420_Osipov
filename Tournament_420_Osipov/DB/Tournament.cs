@@ -18,6 +18,7 @@ namespace Tournament_420_Osipov.DB
         public Tournament()
         {
             this.Match = new HashSet<Match>();
+            this.TournamentApplication = new HashSet<TournamentApplication>();
         }
     
         public int IDTournament { get; set; }
@@ -26,10 +27,16 @@ namespace Tournament_420_Osipov.DB
         public Nullable<int> Prize { get; set; }
         public Nullable<int> IDCategory { get; set; }
         public Nullable<int> IDStage { get; set; }
+        public string Format { get; set; }
+        public Nullable<int> NumberOfPlayers { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+        public string StartTime { get; set; }
     
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Match> Match { get; set; }
         public virtual Stage Stage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TournamentApplication> TournamentApplication { get; set; }
     }
 }

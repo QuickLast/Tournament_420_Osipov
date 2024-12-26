@@ -106,6 +106,9 @@
     <Compile Include="DB\Tournament.cs">
       <DependentUpon>TournamentModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DB\TournamentApplication.cs">
+      <DependentUpon>TournamentModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DB\TournamentModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -135,7 +138,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AddTournament.xaml">
+    <Page Include="Pages\AddTournamentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -184,8 +187,8 @@
     <Compile Include="Pages\AddMatchResultPage.xaml.cs">
       <DependentUpon>AddMatchResultPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AddTournament.xaml.cs">
-      <DependentUpon>AddTournament.xaml</DependentUpon>
+    <Compile Include="Pages\AddTournamentPage.xaml.cs">
+      <DependentUpon>AddTournamentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AdminPanelPage.xaml.cs">
       <DependentUpon>AdminPanelPage.xaml</DependentUpon>

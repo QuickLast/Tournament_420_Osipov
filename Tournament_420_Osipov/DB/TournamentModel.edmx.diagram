@@ -29,6 +29,9 @@
         <AssociationConnector Association="TournamentDB_420_OsipovModel.FK_TeamsHistory_Team" ManuallyRouted="false" />
         <AssociationConnector Association="TournamentDB_420_OsipovModel.FK_User_UserRole" ManuallyRouted="false" />
         <AssociationConnector Association="TournamentDB_420_OsipovModel.FK_Player_User" />
+        <EntityTypeShape EntityType="TournamentDB_420_OsipovModel.TournamentApplication" Width="1.5" PointX="12.25" PointY="5" />
+        <AssociationConnector Association="TournamentDB_420_OsipovModel.FK_TournamentApplication_Tournament" />
+        <AssociationConnector Association="TournamentDB_420_OsipovModel.FK_TournamentApplication_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

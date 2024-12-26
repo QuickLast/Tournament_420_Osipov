@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Tournament_420_Osipov.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddTournament.xaml
+    /// Логика взаимодействия для AddTournamentPage.xaml
     /// </summary>
-    public partial class AddTournament : Page
+    public partial class AddTournamentPage : Page
     {
-        public AddTournament()
+        public AddTournamentPage()
         {
             InitializeComponent();
         }
